@@ -80,10 +80,10 @@ export function SidebarDemo(props: { user: string; }) {
             <SidebarLink
               link={{
                 label: props.user,
-                href: "#",
+                href: "/",
                 icon: (
                   <Image
-                    src="https://assets.aceternity.com/manu.png"
+                    src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1727790703~exp=1727791303~hmac=a063f042fadd085920d68cc90f8753421d2036277126a22d581580ca1a85dc60"
                     className="h-7 w-7 flex-shrink-0 rounded-full"
                     width={50}
                     height={50}

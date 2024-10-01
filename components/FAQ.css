@@ -1,9 +1,9 @@
 /* Container for FAQ section */
 .faq-container {
     max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #111; /* Dark background for contrast */
+    margin: 0px auto;
+    padding: 50px 20px;
+    /*background-color: #111;  Dark background for contrast */
     color: #f1f1f1; /* Light text color */
     font-family: 'Arial', sans-serif;
   }

@@ -7,29 +7,41 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import CoreFeatures from "@/components/Features";
+import FAQ from "@/components/Faq";
+import { InfiniteMovingCardsDemo } from "@/components/MovingCards";
+import { LampDemo } from "@/components/lamp";
 
 export default function Home() {
   const words = ["better", "cute", "beautiful", "modern"];
 
   return (
-    <div>
-      <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto h-[100vh] ">
-        <Hero />
-      </div>
-      <div>
-        <SidebarDemo user="John" />
-      </div>
-      <div className="h flex justify-center items-center px-4">
-        <div className="text-6xl mx-auto font-semibold text-white-100 dark:text-neutral-400 absolute top-[38vh]">
-          Build
-          <FlipWords words={words} /> <br />
-          websites with Aceternity UI
-        </div>
-      </div>
+      <body suppressHydrationWarning={true} >
+        <div>
+          <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto h-[100vh] ">
+            <Hero />
+          </div>
+          <div>
+            <SidebarDemo user="John" />
+          </div>
+          <div className="h flex justify-center items-center px-4">
+            <div className="text-6xl mx-auto font-semibold text-white-100 dark:text-neutral-400 absolute top-[38vh]">
+              Build
+              <FlipWords words={words} /> <br />
+              websites with Aceternity UI
+            </div>
+          </div>
 
-      <div>
-      <CoreFeatures />
-      </div>
-    </div>
+          <div>
+            <CoreFeatures />
+          </div>
+          <div>
+            <FAQ />
+          </div>
+          <div>
+            <InfiniteMovingCardsDemo />
+            <LampDemo />
+          </div>
+        </div>
+      </body>
   );
 }

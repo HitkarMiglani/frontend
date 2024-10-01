@@ -3,7 +3,8 @@ import './FAQ.css'; // Import the CSS for styling
 
 const FAQ = () => {
   return (
-    <div className="faq-container">
+    <div className='bg-black-100'>
+    <div className="faq-container bg-black-100" >
       <h2>Frequently Asked Questions</h2>
       <div className="faq-item">
         <h3>❓ What is AlzCare?</h3>
@@ -32,7 +33,7 @@ const FAQ = () => {
           AlzCare provides caregivers with educational resources, forums, and a support system to ease the burden of care.
         </p>
       </div>
-    </div>
+    </div></div>
   );
 };
 

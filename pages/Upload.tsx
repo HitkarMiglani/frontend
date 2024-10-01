@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import MRIAlzDetection from '@/components/File';
 import { useState, ChangeEvent, FormEvent } from 'react';
 
 const UploadPage: React.FC = () => {
@@ -44,6 +46,7 @@ const UploadPage: React.FC = () => {
 
   return (
     <div>
+      <MRIAlzDetection />
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Upload</button>
