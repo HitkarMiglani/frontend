@@ -16,14 +16,14 @@ export function SidebarDemo(props: { user: string; }) {
   const links = [
     {
       label: "Home",
-      href: "#",
+      href: "/",
       icon: (
         <IconBrandTabler className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "MRI ",
-      href: "#",
+      href: "/upload",
       icon: (
         <IconUserBolt className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
