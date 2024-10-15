@@ -78,6 +78,7 @@ export const FileUpload = () => {
 
       const data = await response.json();
       setResult(data); // Store API response
+      console.log(data);
       setError(null);  // Clear error if successful
     } catch (error) {
       setError("Error uploading file.");

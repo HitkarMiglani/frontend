@@ -71,6 +71,7 @@ export const LampContainer = ({
         </motion.div>
         <div className="absolute top-1/2 h-48 w-[40%] translate-y-12 scale-x-150 bg-slate-950 blur-2xl"></div>
         <div className="absolute top-1/2 z-50 h-48 w-[80%] bg-transparent opacity-10 backdrop-blur-md"></div>
+        <h1>Hii</h1>
         <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-cyan-500 opacity-50 blur-3xl"></div>
         <motion.div
           initial={{ width: "8rem" }}

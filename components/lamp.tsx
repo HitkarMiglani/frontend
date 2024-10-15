@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { LampContainer } from "../components/ui/lamp";
+import { LampContainer } from "./ui/lamp";
+
+// import Map from "./maps";
 
 export function LampDemo() {
   return (
-    <LampContainer>
+    <LampContainer >
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
