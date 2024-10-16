@@ -79,6 +79,10 @@ export const FileUpload = () => {
       const data = await response.json();
       setResult(data); // Store API response
       console.log(data);
+      const resultElement = document.getElementById('result');
+      if (resultElement) {
+        resultElement.innerText = result.prediction;
+      }
       setError(null);  // Clear error if successful
     } catch (error) {
       setError("Error uploading file.");
@@ -203,6 +207,7 @@ export const FileUpload = () => {
       {/* Display result or error message */}
       {error && <p className="text-red-500 mt-4">{error}</p>}
       {result && <p className="text-green-500 mt-4">Upload successful!</p>}
+      <div className="text-green-500 mt-5" id="result">null</div>
     </form>
   );
 };
