@@ -51,7 +51,7 @@ export const WavyBackground = ({
   const init = () => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.innerWidth;
+    w = ctx.canvas.width = parent.innerWidth ;
     h = ctx.canvas.height = window.innerHeight;
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
@@ -122,6 +122,7 @@ export const WavyBackground = ({
         className="absolute inset-0 z-0"
         ref={canvasRef}
         id="canvas"
+        
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
         }}
