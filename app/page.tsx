@@ -14,13 +14,15 @@ import { LampDemo } from "@/components/lamp";
 //receive username from django
 const fetchUsername = async (): Promise<string> => {
   try {
-    const response = await axios.get("http://127.0.0.1:8000/api/user/");
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/`,{
+      method :"POST",
+    });
     console.log(response);
     if (response.data.user == "") throw "error";
     return response.data.user;
   } catch (error) {
     console.log(error);
-    return "Hitkar";
+    return "Hitka";
   }
 };
 
