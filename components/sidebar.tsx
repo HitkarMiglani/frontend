@@ -29,15 +29,15 @@ export function SidebarDemo(props: { user: string; }) {
       ),
     },
     {
-      label: "Profile",
+      label: "Daily Analysis",
       href: "#",
       icon: (
         <IconUserBolt className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Profile",
-      href: "#",
+      label: "Exercise",
+      href: "/exercise",
       icon: (
         <IconUserBolt className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
@@ -51,7 +51,7 @@ export function SidebarDemo(props: { user: string; }) {
     },
     {
       label: "Logout",
-      href: "#",
+      href: "http://127.0.0.1:8000/logout",
       icon: (
         <IconArrowLeft className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),

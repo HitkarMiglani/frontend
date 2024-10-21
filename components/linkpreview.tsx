@@ -5,7 +5,7 @@ import { LinkPreview } from "@/components/ui/linkprew"
 export function LinkPreviewDemoSecond() {
   return (
     <div className="flex mt-10 h-[25rem] flex-col px-4 absolute">
-      <p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-5xl mb-10 absolute w-[35rem] text-center left-[-137px]">
+      <div className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-5xl mb-10 absolute w-[35rem] text-center left-[-137px]">
         Visit my Github {" "}
         <LinkPreview
           url="https://github.com/HitkarMiglani"
@@ -14,7 +14,7 @@ export function LinkPreviewDemoSecond() {
           Hitkar Miglani
         </LinkPreview>{" "}
         for more amazing Projects.
-      </p>
+      </div>
     </div>
   );
 }

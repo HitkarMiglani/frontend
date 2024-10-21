@@ -15,7 +15,8 @@ import { LampDemo } from "@/components/lamp";
 const fetchUsername = async (): Promise<string> => {
   try {
     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/`,{
-      method :"POST",
+      withCredentials: true,
+      method :"GET",
     });
     console.log(response);
     if (response.data.user == "") throw "error";
@@ -41,7 +42,7 @@ export default function Home() {
   }, []);
 
   return (
-    <body suppressHydrationWarning={true}>
+    <main suppressHydrationWarning={true}>
       <div>
         <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto h-[100vh] ">
           <Hero />
@@ -94,6 +95,6 @@ export default function Home() {
           </div>
         </div>*/}
       </div>
-    </body>
+    </main>
   );
 }
