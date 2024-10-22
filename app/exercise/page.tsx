@@ -11,20 +11,20 @@ interface Exercise {
 const CognitiveExercises = () => {
   const [exercises, setExercises] = useState<Exercise[]>([]);
 
-  useEffect(() => {
-    const fetchExercises = async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/exercises/`); // Replace with your API endpoint
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setExercises(data.exercises);
-      } catch (error) {
-        console.error("Failed to fetch exercises:", error);
+  const fetchExercises = async () => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/exercises/`); // Replace with your API endpoint
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    };
+      const data = await response.json();
+      setExercises(data.exercises);
+    } catch (error) {
+      console.error("Failed to fetch exercises:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchExercises();
   }, []);
 
@@ -35,16 +35,17 @@ const CognitiveExercises = () => {
 
   const handleAddExercise = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const form = new FormData();
+    form.append("name", newExercise.name);
+    form.append("description", newExercise.description);
+    form.append("difficulty", newExercise.difficulty);
+    form.append("type", newExercise.type.toString());
+
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/exercises/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/addExercise/`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: newExercise.name,
-          description: newExercise.description,
-        }),
+        body: form,
       });
 
       if (!response.ok) {
@@ -52,9 +53,11 @@ const CognitiveExercises = () => {
       }
 
       const data = await response.json();
-      setExercises((prevExercises) => [...prevExercises, data.exercise]);
+      console.log(data);
+      // setExercises((prevExercises) => [...prevExercises, data.exercise]);
       setNewExercise({ name: "", description: "",difficulty: "",type:0 });
       setShowModal(false);
+      fetchExercises();
     } catch (error) {
       console.error("Failed to add exercise:", error);
     }
