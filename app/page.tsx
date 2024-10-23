@@ -18,7 +18,7 @@ const fetchUsername = async (): Promise<string> => {
       withCredentials: true,
       method :"GET",
     });
-    console.log(response);
+    // console.log(response);
     if (response.data.user == "") throw "error";
     return response.data.user;
   } catch (error) {
