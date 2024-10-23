@@ -3,7 +3,7 @@
 import { Hero } from "@/components/Hero";
 import { SidebarDemo } from "@/components/sidebar";
 import { FlipWords } from "@/components/ui/flipwords";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CoreFeatures from "@/components/Features";

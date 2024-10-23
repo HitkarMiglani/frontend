@@ -43,8 +43,8 @@ export function SidebarDemo(props: { user: string; }) {
       ),
     },
     {
-      label: "Settings",
-      href: "#",
+      label: "Manage",
+      href: "/Patients",
       icon: (
         <IconSettings className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
