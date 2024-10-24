@@ -54,7 +54,7 @@ const PatientsPage: React.FC = () => {
                         <button 
                             className="btn btn-primary"
                             onClick={() => handleCardClick(patient)}
-                        ></button>
+                         />
                     </div>
                 ))}
             </div>

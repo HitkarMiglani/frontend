@@ -209,7 +209,7 @@ export const FileUpload = () => {
       {/* Display result or error message */}
       {error && <p className="text-red-500 mt-4">{error}</p>}
       {result && <p className="text-green-500 mt-4">Upload successful!</p>}
-      {result && <div className="text-green-500 mt-5" id="result"></div>}
+      {result && <div className="text-green-500 mt-5" id="result" />}
     </form>
   );
 };
