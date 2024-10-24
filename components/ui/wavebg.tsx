@@ -126,7 +126,7 @@ export const WavyBackground = ({
         style={{
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
         }}
-      ></canvas>
+       />
       <div className={cn("relative z-10", className)} {...props}>
         {children}
       </div>
