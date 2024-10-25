@@ -19,7 +19,7 @@ const fetchUsername = async (): Promise<string> => {
       method :"GET",
     });
     // console.log(response);
-    if (response.data.user == "") throw "error";
+    if (response.data.user === "") throw "error";
     return response.data.user;
   } catch (error) {
     console.log(error);
