@@ -66,6 +66,7 @@
   }
 }
 
+//CSS
 @layer base {
   * {
     @apply border-border !scroll-smooth;
