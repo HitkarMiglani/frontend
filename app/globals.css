@@ -1,4 +1,4 @@
-@tailwind base;
+@tailwind base; 
 @tailwind components;
 @tailwind utilities;
 
@@ -65,11 +65,10 @@
     --ring: 240 4.9% 83.9%;
   }
 }
-//Comit
-//CSS
 @layer base {
   * {
-    @apply border-border !scroll-smooth;
+    @apply border-border;
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground; 

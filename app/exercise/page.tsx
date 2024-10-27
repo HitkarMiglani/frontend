@@ -5,7 +5,9 @@ import { FormEvent, useEffect, useState } from "react";
 interface Exercise {
   id: number;
   name: string;
+  dificuilty: string;
   description: string;
+  type:number;
 }
 
 const CognitiveExercises = () => {
@@ -18,6 +20,7 @@ const CognitiveExercises = () => {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
+      // console.log(data);
       setExercises(data.exercises);
     } catch (error) {
       console.error("Failed to fetch exercises:", error);
@@ -31,12 +34,13 @@ const CognitiveExercises = () => {
   
   const [showModal, setShowModal] = useState(false);
 
-  const [newExercise, setNewExercise] = useState({ name: "", description: "", difficulty: "", type: 0 });
+  const [newExercise, setNewExercise] = useState({ id: 0, name: "", description: "", difficulty: "", type: 0 });
 
   const handleAddExercise = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const form = new FormData();
+    form.append("id", newExercise.id.toString());
     form.append("name", newExercise.name);
     form.append("description", newExercise.description);
     form.append("difficulty", newExercise.difficulty);
@@ -55,7 +59,7 @@ const CognitiveExercises = () => {
       // const data = await response.json();
       // console.log(data);
       // setExercises((prevExercises) => [...prevExercises, data.exercise]);
-      setNewExercise({ name: "", description: "",difficulty: "",type:0 });
+      setNewExercise({ id: 0, name: "", description: "", difficulty: "", type: 0 });
       setShowModal(false);
       fetchExercises();
     } catch (error) {
@@ -141,7 +145,7 @@ const CognitiveExercises = () => {
       <h2 className="text-lg font-semibold">{exercise.name}</h2>
       <p>{exercise.description}</p>
       <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-        Start Exercise
+        <a href={`http://localhost:3000/exercise/${exercise.id}`} className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Start Exercise</a>
       </button>
       </div>
       ))}
