@@ -30,7 +30,7 @@ const PatientsPage: React.FC = () => {
         const fetchPatients = async () => {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/patients`); // Replace with your API endpoint
             const data = await response.json();
-            console.log(data);
+            //console.log(data);
             setPatients(data.patients);
         };
 
