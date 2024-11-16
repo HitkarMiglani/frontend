@@ -47,7 +47,14 @@ export const WavyBackground = ({
         return 0.001;
     }
   };
-
+  
+  const render = () => {
+    ctx.fillStyle = backgroundFill || "black";
+    ctx.globalAlpha = waveOpacity || 0.5;
+    ctx.fillRect(0, 0, w, h);
+    drawWave(5);
+    animationId = requestAnimationFrame(render);
+  };
   const init = () => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
@@ -86,13 +93,7 @@ export const WavyBackground = ({
   };
 
   let animationId: number;
-  const render = () => {
-    ctx.fillStyle = backgroundFill || "black";
-    ctx.globalAlpha = waveOpacity || 0.5;
-    ctx.fillRect(0, 0, w, h);
-    drawWave(5);
-    animationId = requestAnimationFrame(render);
-  };
+
 
   useEffect(() => {
     init();
