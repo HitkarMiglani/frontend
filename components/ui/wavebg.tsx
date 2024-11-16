@@ -47,7 +47,23 @@ export const WavyBackground = ({
         return 0.001;
     }
   };
-  
+
+  const drawWave = (n: number) => {
+    nt += getSpeed();
+    for (i = 0; i < n; i++) {
+      ctx.beginPath();
+      ctx.lineWidth = waveWidth || 50;
+      ctx.strokeStyle = waveColors[i % waveColors.length];
+      for (x = 0; x < w; x += 5) {
+        const y = noise(x / 800, 0.3 * i, nt) * 100;
+        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
+      }
+      ctx.stroke();
+      ctx.closePath();
+    }
+  };
+
+  let animationId: number;
   const render = () => {
     ctx.fillStyle = backgroundFill || "black";
     ctx.globalAlpha = waveOpacity || 0.5;
@@ -77,23 +93,6 @@ export const WavyBackground = ({
     "#e879f9",
     "#22d3ee",
   ];
-  const drawWave = (n: number) => {
-    nt += getSpeed();
-    for (i = 0; i < n; i++) {
-      ctx.beginPath();
-      ctx.lineWidth = waveWidth || 50;
-      ctx.strokeStyle = waveColors[i % waveColors.length];
-      for (x = 0; x < w; x += 5) {
-        const y = noise(x / 800, 0.3 * i, nt) * 100;
-        ctx.lineTo(x, y + h * 0.5); // adjust for height, currently at 50% of the container
-      }
-      ctx.stroke();
-      ctx.closePath();
-    }
-  };
-
-  let animationId: number;
-
 
   useEffect(() => {
     init();
