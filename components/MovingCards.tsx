@@ -4,18 +4,6 @@
 import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
-export function InfiniteMovingCardsDemo() {
-  return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-black-100 dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center overflow-hidden ">
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
-      />
-    </div>
-  );
-}
-
 const testimonials = [
   {
     quote:
@@ -47,3 +35,16 @@ const testimonials = [
     title: "Moby-Dick",
   },
 ];
+
+
+export function InfiniteMovingCardsDemo() {
+  return (
+    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-black-100 dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center overflow-hidden ">
+      <InfiniteMovingCards
+        items={testimonials}
+        direction="right"
+        speed="slow"
+      />
+    </div>
+  );
+}
