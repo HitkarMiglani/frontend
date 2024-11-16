@@ -12,6 +12,36 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils/utils";
 
+
+export const Logo = () => {
+  return (
+    <Link
+      href="/"
+      className="font-normal flex space-x-2 items-center text-sm text-white py-1 relative z-20"
+    >
+      <div className="h-5 w-6 bg-white dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="font-medium text-white-100 dark:text-white whitespace-pre"
+      >
+        AlzCaree
+      </motion.span>
+    </Link>
+  );
+};
+
+export const LogoIcon = () => {
+  return (
+    <Link
+      href="/"
+      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
+    >
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
+    </Link>
+  );
+};
+
 export function SidebarDemo(props: { user: string; }) {
   const links = [
     {
@@ -98,31 +128,3 @@ export function SidebarDemo(props: { user: string; }) {
     </div>
   );
 }
-export const Logo = () => {
-  return (
-    <Link
-      href="/"
-      className="font-normal flex space-x-2 items-center text-sm text-white py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-white dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="font-medium text-white-100 dark:text-white whitespace-pre"
-      >
-        AlzCaree
-      </motion.span>
-    </Link>
-  );
-};
-
-export const LogoIcon = () => {
-  return (
-    <Link
-      href="/"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-    </Link>
-  );
-};
