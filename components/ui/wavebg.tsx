@@ -48,6 +48,14 @@ export const WavyBackground = ({
     }
   };
 
+  const waveColors = colors ?? [
+    "#38bdf8",
+    "#818cf8",
+    "#c084fc",
+    "#e879f9",
+    "#22d3ee",
+  ];
+
   const drawWave = (n: number) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -71,7 +79,8 @@ export const WavyBackground = ({
     drawWave(5);
     animationId = requestAnimationFrame(render);
   };
-  const init = () => {
+
+    const init = () => {
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
     w = ctx.canvas.width = parent.innerWidth ;
@@ -85,15 +94,7 @@ export const WavyBackground = ({
     };
     render();
   };
-
-  const waveColors = colors ?? [
-    "#38bdf8",
-    "#818cf8",
-    "#c084fc",
-    "#e879f9",
-    "#22d3ee",
-  ];
-
+  
   useEffect(() => {
     init();
     return () => {
