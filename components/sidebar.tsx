@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
 import {
   // skipcq: JS-0356
-  IconArrowLeft,
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
