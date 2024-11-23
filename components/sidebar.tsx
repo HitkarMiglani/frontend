@@ -1,7 +1,9 @@
 "use client";
+// skipcq: JS-W1028
 import React, { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui/sidebar";
 import {
+  // skipcq: JS-0356
   IconArrowLeft,
   IconBrandTabler,
   IconSettings,
@@ -9,9 +11,17 @@ import {
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 import { cn } from "@/lib/utils/utils";
-
+import {
+  SignInButton,
+  UserButton,
+  SignedOut,
+  // SignIn,
+  SignedIn,
+  // Waitlist,
+} from "@clerk/nextjs";
+// import { currentUser } from "@clerk/nextjs/server";
 
 export const Logo = () => {
   return (
@@ -42,7 +52,7 @@ export const LogoIcon = () => {
   );
 };
 
-export function SidebarDemo(props: { user: string; }) {
+export function SidebarDemo() {
   const links = [
     {
       label: "Home",
@@ -79,23 +89,19 @@ export function SidebarDemo(props: { user: string; }) {
         <IconSettings className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
-    {
-      label: "Logout",
-      href: "http://127.0.0.1:8000/logout",
-      icon: (
-        <IconArrowLeft className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
   ];
-  
+
+
   const [open, setOpen] = useState(false);
   return (
+    // skipcq: JS-0415
     <div
       className={cn(
         "rounded-md flex flex-col md:flex-row bg-black-100  dark:bg-neutral-800 w-full flex-1 max-w-7xl mx-auto dark:border-neutral-700 overflow-hidden ",
         "h-screen top-0 fixed left-0 w-[auto] " // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
+
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10 border bg-transparent ">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -106,22 +112,14 @@ export function SidebarDemo(props: { user: string; }) {
               ))}
             </div>
           </div>
-          <div>
-            <SidebarLink
-              link={{
-                label: props.user,
-                href: "/",
-                icon: (
-                  <Image
-                    src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1727790703~exp=1727791303~hmac=a063f042fadd085920d68cc90f8753421d2036277126a22d581580ca1a85dc60"
-                    className="h-7 w-7 flex-shrink-0 rounded-full"
-                    width={50}
-                    height={50}
-                    alt="Avatar"
-                  />
-                ),
-              }}
-            />
+          <div className="text-white-200">
+            <SignedOut>
+              <SignInButton mode="modal" />
+              {/* <Waitlist /> */}
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
         </SidebarBody>
       </Sidebar>

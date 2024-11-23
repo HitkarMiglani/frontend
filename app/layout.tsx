@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,25 +19,31 @@ export const metadata: Metadata = {
   description: "Alzcare",
 };
 
+function Footer() {
+  return (
+    <div className="bg-black-100 text-cyan-50 text-center top-[100vh] static">
+      <p>&copy; 2024 Alzcare</p>
+    </div>
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-
-        <div>
-        <div className="bg-black-100 text-cyan-50 text-center top-[100vh] static">
-          
-          <p>&copy; 2024 Alzcare</p>
-        </div>
-      </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+          <div>
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
