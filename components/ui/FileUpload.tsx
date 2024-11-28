@@ -5,6 +5,7 @@ import React, { useRef, useState, FormEvent, ChangeEvent } from "react";
 import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
+import user from "../User";
 
 const mainVariant = {
   initial: {
@@ -33,6 +34,7 @@ export const FileUpload = () => {
   const [error, setError] = useState<string | null>(null); // Stores errors
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  
   // Handle file selection
   const handleFileChange = (newFiles: File[]) => {
     if (newFiles.length > 0) {
@@ -58,6 +60,7 @@ export const FileUpload = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+
     if (!file) {
       setError("Please select a file.");
       return;
@@ -65,9 +68,14 @@ export const FileUpload = () => {
 
     const formData = new FormData();
     formData.append("file", file);
-
+    const use = "P_00001"
+    if (use) {
+        formData.append("PID", use);
+    } else {
+        console.error('User ID is undefined');
+    }
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/upload`, {
         method: "POST",
         body: formData,
       });
