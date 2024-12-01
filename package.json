@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@chakra-ui/react": "^3.2.1",
     "@clerk/nextjs": "^6.3.4",
+    "@nextui-org/modal": "^2.0.41",
+    "@nextui-org/react": "^2.4.8",
     "@radix-ui/react-hover-card": "^1.1.2",
     "@radix-ui/react-label": "^2.1.0",
     "@tabler/icons-react": "^3.20.0",
