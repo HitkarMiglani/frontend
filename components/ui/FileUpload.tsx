@@ -90,7 +90,7 @@ export const FileUpload = () => {
       const resultElement = document.getElementById('result');
       if (resultElement) {
         resultElement.innerText = result.prediction;
-        alert(`The predection is ${resultElement}`);
+        alert(`The predection is ${result.prediction}`);
       }
       setError(null);  // Clear error if successful
     } catch (error) {
@@ -102,6 +102,11 @@ export const FileUpload = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full" {...getRootProps()}>
+      <select>
+      <option value="P_00001">P_00001</option>
+      <option value="P_00002">P_00002</option>
+      <option value="P_00003">P_00003</option>
+    </select>
       <motion.div
         onClick={handleClick}
         whileHover="animate"
