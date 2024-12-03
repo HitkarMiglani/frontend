@@ -7,6 +7,7 @@ import {
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
+  IconUserStar,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -64,23 +65,24 @@ export function SidebarDemo() {
       label: "MRI ",
       href: "/upload",
       icon: (
-        <IconUserBolt className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconUserStar className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Daily Analysis",
-      href: "#",
+      label: "Medical Classification",
+      href: "/text_classification",
       icon: (
         <IconUserBolt className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Exercise",
-      href: "/exercise",
+      label: "Resourse",
+      href: "/resources",
       icon: (
         <IconUserBolt className="text-neutral-100 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
+
     {
       label: "Manage",
       href: "/Patients",
@@ -89,7 +91,6 @@ export function SidebarDemo() {
       ),
     },
   ];
-
 
   const [open, setOpen] = useState(false);
   return (
@@ -100,7 +101,6 @@ export function SidebarDemo() {
         "h-screen top-0 fixed left-0 w-[auto] z-50" // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
-
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10 border bg-transparent z-50 ">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">

@@ -4,10 +4,6 @@ import { SidebarDemo } from "@/components/sidebar";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 
-export type Props = {
-  searchParams: Record<string, string> | null | undefined;
-};
-
 type Patient = {
   Age: number;
   Gender: string;
@@ -18,8 +14,13 @@ type Patient = {
   user_name: string;
 };
 
-export default async function PatientsPage(props: Props) {
-  
+import { ParsedUrlQuery } from 'querystring';
+
+interface PatientsPageProps {
+  searchParams: ParsedUrlQuery;
+}
+
+export default async function PatientsPage(props: PatientsPageProps) {
   const use = await user();
   const formData = new FormData();
   if (use) {
@@ -31,13 +32,14 @@ export default async function PatientsPage(props: Props) {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/patients`, {
     method: "POST",
     body: formData, //type : ignore
-  }); // Replace with your API endpoint
+  }); 
   if (!response.ok) {
     console.error("Failed to fetch patients, using default data");
   }
   const patients = await response.json();
-
-  const showform = props.searchParams?.modal === "true";
+  // skipcq: JS-0356
+  const searchParams = await props.searchParams;
+  const showform = searchParams?.modal === "true";
 
   return (
     <main className="min-h-screen bg-black-100">
@@ -46,7 +48,7 @@ export default async function PatientsPage(props: Props) {
         <Header />
       </BackgroundLines>
       <div className="">
-        <Link href="/Patients?modal=true"> Add Patient </Link>
+        <Link className="text-white-100 left-[7rem] relative inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg px-8 py-2  bg-black group transition duration-200  hover:bg-transparent" href="/Patients?modal=true"> Add Patient </Link>
         <PatientForm showform={showform} />
         <PatientList patients={patients} />
         <br />
@@ -83,8 +85,7 @@ async function addPatient(formData: FormData) {
   if (!response.ok) {
     console.error("Failed to add patient");
     revalidatePath("/Patients");
-  }
-  else{
+  } else {
     revalidatePath("/Patients");
   }
 }

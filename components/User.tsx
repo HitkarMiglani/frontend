@@ -5,5 +5,8 @@ export default async function user() {
 
     const user = await currentUser();
   // skipcq: JS-0002
-    return user?.id;
+  if (!user) {
+    return "user";}
+
+  return user?.id;
 }
