@@ -8,8 +8,6 @@ import FAQ from "@/components/Faq";
 import { InfiniteMovingCardsDemo } from "@/components/MovingCards";
 import { LampDemo } from "@/components/lamp";
 
-//receive username from django
-
 export default function Home() {
   const words = ["Patients", "Caretakers", "Doctors"];
 

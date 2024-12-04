@@ -3,6 +3,7 @@ import React from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils/utils";
+import { responseCookiesToRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 
 
 const BottomGradient = () => {
@@ -32,6 +33,8 @@ const LabelInputContainer = ({
 
 export function TextForm() {
 
+  const [responseData, setResponseData] = React.useState<any>(null);
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -55,16 +58,18 @@ export function TextForm() {
     formData.append("Physical", (document.getElementById("Physical") as HTMLInputElement).value);
     formData.append("CholestrolL", (document.getElementById("CholestrolL") as HTMLInputElement).value);
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/text_class`, {
-        method: "POST",
-        body: formData
-    }).then((response: Response) => {
-        if (response.ok) {
-            console.log(response);
-        } else {
-            console.error("Failed to fetch");
-        }
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: formData
+    }).then(response => response.json())
+    // skipcq: JS-0323
+    .then((data: any) => {
+      
+      setResponseData(data["data"]);
     }).catch((error: Error) => {
-        console.error("Error:", error);
+      console.error("Error:", error);
     });
     };
 
@@ -75,7 +80,16 @@ export function TextForm() {
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Fill The Details to Get The Predection
       </h2>
-
+      {responseData && (
+        <div className="mt-3 p-3 bg-blue-200 dark:bg-neutral-800 rounded-md absolute w-[40%] top-[0.5rem] ">
+          <h3 className="font-bold text-lg text-neutral-800  ">
+            Predection
+          </h3>
+          <p className="text-neutral-800 dark:text-neutral-200">
+            {responseData}
+          </p>
+        </div>
+      )}
       <form className="my-8" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
@@ -88,37 +102,37 @@ export function TextForm() {
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="functional">FunctionalAssessment</Label>
-            <Input id="functional" placeholder="0.000000" type="number" />
+            <Input id="functional" placeholder="0.000000" type="number" step={0.0001} />
           </LabelInputContainer>
         </div>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="adl">ADL: </Label>
-            <Input id="adl" placeholder="0.00000" type="number" />
+            <Input id="adl" placeholder="0.00000" type="number" step={0.0001} />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="msme">MSME: </Label>
-            <Input id="msme" placeholder="0.000000" type="number" />
+            <Input id="msme" placeholder="0.000000" type="number" step={0.0001} />
           </LabelInputContainer>
         </div>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="CholesterolT">Cholesterol Total</Label>
-            <Input id="CholesterolT" placeholder="0.00000" type="number" />
+            <Input id="CholesterolT" placeholder="0.00000" type="number" step={0.0001} />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="CholesterolH">Cholesterol HDL</Label>
-            <Input id="CholesterolH" placeholder="0.000000" type="number" />
+            <Input id="CholesterolH" placeholder="0.000000" type="number" step={0.0001} />
           </LabelInputContainer>
         </div>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="smoaking">BMI</Label>
-            <Input id="smoaking" placeholder="18 - 26" type="number" />
+            <Input id="smoaking" placeholder="18 - 26" type="number" step={0.0001} />
           </LabelInputContainer>
           <LabelInputContainer>
-            <Label htmlFor="Diet">Diet Quantity</Label>
-            <Input id="Diet" placeholder="10" type="number" />
+            <Label htmlFor="Diet">Diet Quality</Label>
+            <Input id="Diet" placeholder="10" type="number" step={0.0001} />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="MemoryComplaints">MemoryComplaints</Label>
@@ -128,25 +142,25 @@ export function TextForm() {
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="BehavioralProblems">BehavioralProblems</Label>
-            <Input id="BehavioralProblems" placeholder="0 - 1" type="number" step={0.01} />
+            <Input id="BehavioralProblems" placeholder="0 - 1" type="number" />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="CT">CholesterolTriglycerides</Label>
-            <Input id="CT" placeholder="0" type="number" />
+            <Input id="CT" placeholder="0" type="number" step={0.0001} />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="Alcohol">Alcohol Consumption</Label>
-            <Input id="Alcohol" placeholder="0" type="number" />
+            <Input id="Alcohol" placeholder="0 - 1 " type="number" />
           </LabelInputContainer>
         </div>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="Sleep">Sleep Quantity</Label>
-            <Input id="Sleep" placeholder="18 - 26" type="number" />
+            <Input id="Sleep" placeholder="2" type="number" />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="Physical">Physical Activity</Label>
-            <Input id="Physical" placeholder="10" type="number" />
+            <Input id="Physical" placeholder="10" type="number"  />
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="CholestrolL">CholertrolLDL</Label>
@@ -157,7 +171,7 @@ export function TextForm() {
           className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
           type="submit"
         >
-          Sign up &rarr;
+          Get Predection &rarr;
           <BottomGradient />
         </button>
 
