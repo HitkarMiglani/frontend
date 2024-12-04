@@ -78,7 +78,6 @@ export const DesktopSidebar = ({
 }: React.ComponentProps<typeof motion.div>) => {
   const { open, setOpen, animate } = useSidebar();
   return (
-    <>
       <motion.div
         className={cn(
           "h-full px-4 py-4 hidden  md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[300px] flex-shrink-0",
@@ -93,15 +92,12 @@ export const DesktopSidebar = ({
       >
         {children}
       </motion.div>
-    </>
   );
 };
 
 export const SidebarBody = (props: React.ComponentProps<typeof motion.div>) => {
   return (
-    <>
       <DesktopSidebar {...props} />
-    </>
   );
 };
 
