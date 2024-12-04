@@ -5,16 +5,6 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils/utils";
 
 
-type Patient = {
-    Age: number;
-    Gender: string;
-    Name: string;
-    Predection: string;
-    id: number;
-    user_id: string;
-    user_name: string;
-  };
-
 const BottomGradient = () => {
   return (
     <>
