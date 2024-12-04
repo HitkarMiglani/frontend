@@ -122,9 +122,6 @@ export const SidebarLink = ({
       "flex items-center justify-start gap-2  group/sidebar py-2",
       className
       )}
-      onClick={() => {
-      setTimeout(() => <Loading />, 3000);
-      }}
       {...props}
     >
       {link.icon}

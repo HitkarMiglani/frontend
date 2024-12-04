@@ -97,12 +97,12 @@ export function SidebarDemo() {
     // skipcq: JS-0415
     <div
       className={cn(
-        "rounded-md flex flex-col md:flex-row bg-black-100  dark:bg-neutral-800 w-full flex-1 max-w-7xl mx-auto dark:border-neutral-700 overflow-hidden z-50 ",
-        "h-screen top-0 fixed left-0 w-[auto] z-50" // for your use case, use `h-screen` instead of `h-[60vh]`
+        "rounded-md flex flex-col md:flex-row bg-black-100  dark:bg-neutral-800 w-full flex-1 max-w-7xl mx-auto dark:border-neutral-700 overflow-hidden z-30 ",
+        "h-screen top-0 fixed left-0 w-[auto] z-30" // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10 border bg-transparent z-50 ">
+        <SidebarBody className="justify-between gap-10 border bg-transparent z-30 ">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
