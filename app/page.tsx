@@ -27,7 +27,6 @@ export default function Home() {
             to live a better life.
           </div>
         </div>
-
         <div>
           <CoreFeatures />
         </div>
