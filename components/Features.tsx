@@ -2,16 +2,19 @@
 import React from 'react';
 import './CoreFeatures.css'; // Custom CSS file for styling
 // import featureImage from '@/images/photo.jpeg'; // Replace with the actual image path
+import Image from 'next/image';
+import featureImage from '@/images/photo.jpeg';
 
 const CoreFeatures = () => {
   return (
     <div className="core-features-container bg-black-100 ">
-        {/* Left side: Image */}
         <div className="features-image">
-          <img src="https://images.pexels.com/photos/9574568/pexels-photo-9574568.jpeg" alt="MRI scan process" />
-        </div>
+          <Image 
+            src={featureImage}
+            alt="Core Features"
 
-        {/* Right side: Features list */}
+          />
+        </div>
         <div className="features-list font-mono from-neutral-100">
           <h2>Our Core Features</h2>
           <ul>
@@ -38,3 +41,4 @@ const CoreFeatures = () => {
 };
 
 export default CoreFeatures;
+
