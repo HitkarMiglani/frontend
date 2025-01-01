@@ -17,16 +17,16 @@ export default function GriefAndLoss() {
         Grief and Loss
       </h1>
       <p className="text-slate-500 text-xl">
-        It is common for caregivers to have feelings of loss and grief as their life is changed by Alzheimer's. You are entitled to these emotions and may start to experience them as soon as you learn of the diagnosis. Share your feelings and seek support as you go through this process.
+        It is common for caregivers to have feelings of loss and grief as their life is changed by Alzheimer&apos;s. You are entitled to these emotions and may start to experience them as soon as you learn of the diagnosis. Share your feelings and seek support as you go through this process.
       </p>
       <h2 className="text-4xl font-bold text-violet-800 font-serif my-4">
         Feelings of grief
       </h2>
       <p className="text-slate-500 text-xl">
-        It's normal to feel loss when you care about someone who has Alzheimer's disease. It's also normal to feel guilty, abandoned and angry.
+        It&apos;s normal to feel loss when you care about someone who has Alzheimer&apos;s disease. It&apos;s also normal to feel guilty, abandoned and angry.
       </p>
       <p className="text-slate-500 text-xl">
-        Alzheimer's gradually takes away the person you know and love. As this happens, you will mourn him or her and may experience the different phases of grieving: denial, anger, guilt, sadness and acceptance. The stages of grief don't happen neatly in order. You may move in and out of different stages as time goes on.
+        Alzheimer&apos;s gradually takes away the person you know and love. As this happens, you will mourn him or her and may experience the different phases of grieving: denial, anger, guilt, sadness and acceptance. The stages of grief don&apos;t happen neatly in order. You may move in and out of different stages as time goes on.
       </p>
       <p className="text-slate-500 text-xl">
         Some common experiences in the grieving process include:
@@ -90,7 +90,7 @@ export default function GriefAndLoss() {
           <strong>Prepare to experience feelings of loss more than once:</strong> As dementia progresses, it is common to go through feelings of grief and loss again. Accept and acknowledge your feelings. They are a normal part of the grieving process.
         </li>
         <li>
-          <strong>Claim the grieving process as your own:</strong> No two people experience grief the same way. Grief hits different people at different times; some people need more time to grieve than others. Your experience will depend on the severity and duration of the person's illness, on your own history of loss and on the nature of your relationship with the person who has Alzheimer's.
+          <strong>Claim the grieving process as your own:</strong> No two people experience grief the same way. Grief hits different people at different times; some people need more time to grieve than others. Your experience will depend on the severity and duration of the person&apos;s illness, on your own history of loss and on the nature of your relationship with the person who has Alzheimer&apos;s.
         </li>
         <li>
           <strong>Talk with someone:</strong> Talk with someone you trust about your grief, guilt and anger. If you decide to meet with a therapist who specializes in grief counseling, interview several so you can choose one you are comfortable with.
@@ -99,7 +99,7 @@ export default function GriefAndLoss() {
           <strong>Combat feelings of isolation and loneliness:</strong> Caregivers often give up enjoyable activities and companionship. Make a lunch or movie date with friends. Taking a break may help you relieve stress and grief, and strengthen your support network. Stay involved in activities that you enjoy.
         </li>
         <li>
-          <strong>Join a support group:</strong> When you talk with other caregivers, share your emotions. Cry and laugh together. Do not limit conversations to caregiving tips. Alzheimer's Association support groups take place all across the country. Find one near you. If you prefer online support, join ALZConnected, our online caregiver community with message boards.
+          <strong>Join a support group:</strong> When you talk with other caregivers, share your emotions. Cry and laugh together. Do not limit conversations to caregiving tips. Alzheimer&apos;s Association support groups take place all across the country. Find one near you. If you prefer online support, join ALZConnected, our online caregiver community with message boards.
         </li>
         <li>
           <strong>Know that some people may not understand your grief:</strong> Most people think grief happens when someone dies. They may not know that it is possible to grieve deeply for someone who has a progressive cognitive illness.
