@@ -92,7 +92,7 @@ async function addPatient(formData: FormData) {
 
 function PatientForm({ showform }: { showform: boolean }) {
   return (
-    <>
+    <div>
       {showform && (
         // skipcq: JS-0415
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -128,7 +128,7 @@ function PatientForm({ showform }: { showform: boolean }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
