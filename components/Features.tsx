@@ -12,7 +12,7 @@ const CoreFeatures = () => {
           <Image 
             src={featureImage}
             alt="Core Features"
-
+            
           />
         </div>
         <div className="features-list font-mono from-neutral-100">

@@ -32,7 +32,7 @@ const Stairs = () => {
                         animate="animate"
                         exit="exit"
                         transition={{
-                            duration: 0.4, // Adjust the duration for smoother animation
+                            duration: 0.2, // Adjust the duration for smoother animation
                             ease: "easeInOut",
                             delay,
                         }}

@@ -22,6 +22,8 @@ export const metadata: Metadata = {
   description: "Alzcare",
 };
 
+export const dynamic = 'force-static';
+
 function Footer() {
   return (
     <div className="bg-black-100 text-cyan-50 text-center top-[100vh] static">
@@ -29,6 +31,8 @@ function Footer() {
     </div>
   );
 }
+
+
 
 export default function RootLayout({
   children,

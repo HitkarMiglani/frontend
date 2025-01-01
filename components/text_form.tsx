@@ -32,7 +32,7 @@ const LabelInputContainer = ({
 
 export function TextForm() {
 
-  const [responseData, setResponseData] = React.useState<String>("");
+  const [responseData, setResponseData] = React.useState<string>("");
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
