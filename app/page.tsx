@@ -12,7 +12,7 @@ export default function Home() {
   const words = ["Patients", "Caretakers", "Doctors"];
 
   return (
-    <main suppressHydrationWarning={true}>
+    <main suppressHydrationWarning>
       <div>
         <div className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto h-[100vh] ">
           <Hero />
