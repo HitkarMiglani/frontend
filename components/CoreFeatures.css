@@ -2,18 +2,13 @@
 .core-features-container {
   display: flex;
   justify-content: center;
-  padding: 50px;
-  /* background-color: bg-black-100; Dark background color */
+  padding: 6.5rem;
   color: white; /*White text color for contrast*/
-}
-
-/* Layout for the content */
-.features-content {
-  display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
+  padding-left: 5rem;
   align-items: center;
 }
+
 
 /* Left side image */
 .features-image img {

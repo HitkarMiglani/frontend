@@ -5,8 +5,7 @@ import './CoreFeatures.css'; // Custom CSS file for styling
 
 const CoreFeatures = () => {
   return (
-    <div className="core-features-container bg-black-100">
-      <div className="features-content">
+    <div className="core-features-container bg-black-100 ">
         {/* Left side: Image */}
         <div className="features-image">
           <img src="https://images.pexels.com/photos/9574568/pexels-photo-9574568.jpeg" alt="MRI scan process" />
@@ -34,7 +33,6 @@ const CoreFeatures = () => {
             </li>
           </ul>
         </div>
-      </div>
     </div>
   );
 };
