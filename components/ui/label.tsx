@@ -2,7 +2,7 @@
 
 "use client";
 import React from "react";
-import LabelPrimitive from "@radix-ui/react-label";
+import * as LabelPrimitive from "@radix-ui/react-label";
 
 import { cn } from "@/lib/utils/utils";
 

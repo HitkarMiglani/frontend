@@ -64,9 +64,9 @@ export function TextForm() {
       body: formData
     }).then(response => response.json())
     // skipcq: JS-0323
-    .then((data: any) => {
+    .then((data: { data: string }) => {
       
-      setResponseData(data["data"]);
+      setResponseData(data.data);
     }).catch((error: Error) => {
       console.error("Error:", error);
     });

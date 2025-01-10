@@ -14,10 +14,10 @@ type Patient = {
   user_name: string;
 };
 
-import { ParsedUrlQuery } from 'querystring';
+// import { ParsedUrlQuery } from 'querystring';
 
 interface PatientsPageProps {
-  searchParams: ParsedUrlQuery;
+  searchParams: Promise<Record<string, string | string[]>>;
 }
 
 export default async function PatientsPage(props: PatientsPageProps) {
